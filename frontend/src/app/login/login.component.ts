@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-login',
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
       ]),
 
     })
-  constructor() { }
+  constructor(private _auth:AuthService) { }
 
   ngOnInit(): void {
   }
@@ -39,6 +40,11 @@ export class LoginComponent implements OnInit {
 this.submittedlogin=true;
 
 }  
+
+loginUser()
+{
+  this._auth.loginUser(this.username)
+}
 
 
 
