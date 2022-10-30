@@ -8,13 +8,15 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { AuthService } from './auth.service';
+import { OTPComponent } from './otp/otp.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    OTPComponent
   ],
   imports: [
     BrowserModule,

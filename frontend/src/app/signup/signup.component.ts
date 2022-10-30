@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -38,7 +39,7 @@ export class SignupComponent implements OnInit {
         Validators.minLength(6)
       ])
   })
-  constructor() { }
+  constructor( private service:AuthService) { }
 
   ngOnInit(): void {
   }
@@ -68,7 +69,9 @@ export class SignupComponent implements OnInit {
   onsubmitsignup(values:any)
 {
 this.submittedsignup=true;
-alert("ok")
+//  console.log(values);
+this.service.signup(values);
+  
 }  
 
 }
