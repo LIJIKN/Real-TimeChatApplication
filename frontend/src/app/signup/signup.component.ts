@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,6 +16,8 @@ export class SignupComponent implements OnInit {
   passwordinput = '';
   confpasswordinput = '';
   confPwdMsg = '';
+  // otp = '';
+  // x ='';
   isExist = 0;
 
 
@@ -39,7 +42,7 @@ export class SignupComponent implements OnInit {
         Validators.minLength(6)
       ])
   })
-  constructor( private service:AuthService) { }
+  constructor( private service:AuthService , private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -68,9 +71,22 @@ export class SignupComponent implements OnInit {
   
   onsubmitsignup(values:any)
 {
-this.submittedsignup=true;
-//  console.log(values);
-this.service.signup(values);
+    this.submittedsignup = true;
+  var otp = Math.floor(1000 + Math.random() * 9000);
+
+  console.log(otp);
+
+  this.service.signup(values,otp).subscribe((data)=>{
+  var x = JSON.parse(JSON.stringify(data));
+ console.log(x);
+    const userId = x._id;
+    console.log(userId);
+    this.router.navigate(['/otp/'+userId]) 
+  });
+  this.service.sendOTP(values,otp).subscribe((data2)=>{
+    // console.log(data2);
+  })
+
   
 }  
 

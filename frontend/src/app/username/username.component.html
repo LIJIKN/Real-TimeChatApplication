@@ -6,30 +6,27 @@
 <div class="container">
   <div class="row">
     <div class="box">
-      <form class="form-horizontal span6" 
-      [formGroup]="OTP_form"
-      (ngSubmit)="onSubmitOTP(OTP_form.value)"           >
+      <form class="form-horizontal span6">
 
         <fieldset>
-          <legend >OTP Varification</legend>
+          <legend >User Name</legend>
        
           <div class="control-group">
-            <label class="control-label">Type OTP Hear</label>
+            <label class="control-label">Type Your Name Hear</label>
             <div class="controls">
-              <input type="text" 
-              formControlName="typedotp"
-              class="input-block-level" 
-              pattern="\w+ \w+.*" title="Fill your first and last name" required>
+              <input type="text" class="input-block-level">
             </div>
           </div>
     
-           <div class="buttons"> 
-            
-            <button type="submit" class="btn btn-primary btns" >Submit</button>
-            <button type="button" class="btn btn-primary" id="cancel" (click)="onCancel()">Cancel</button>
+      
+           <div > 
+            <!-- <div class="col-1"> -->
+            <button type="submit" class="btn btn-primary btns">Submit</button>
+          <!-- </div> -->
+          <!-- <div class="col-1"> -->
             <!-- <button type="button" class="btn">Cancel</button> -->
-        
           
+          <!-- </div> -->
            </div> 
         </fieldset>
       </form>

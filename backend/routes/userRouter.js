@@ -1,9 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const { signUp } = require("../controller/userController");
-// console.log("fine");
-// router.post("/login", checkCred);
-router.post("/signup", signUp);
-// router.get("/:id", getName);
+const { sendOTP ,getUserById} = require("../controller/otpController");
 
-module.exports = router;
+
+router.post('/signup/:otp', signUp);
+router.post('/sendOTP/:otp',sendOTP);
+router.post('/username', signUp);
+// router.get("/:id", getName);
+router.get("/getUserById/:userId",getUserById);
+
+module.exports = router;''
