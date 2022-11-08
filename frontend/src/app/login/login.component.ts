@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
       ]),
 
     })
-  constructor(private _auth:AuthService) { }
+  userMsg: string='';
+  constructor(private _auth:AuthService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -38,13 +40,29 @@ export class LoginComponent implements OnInit {
   onsubmitlogin(values:any)
 {
 this.submittedlogin=true;
+this._auth.loginUser(values).subscribe((data)=>{
+  var x=JSON.parse(JSON.stringify(data));
+          if(x.user == true)
+          {
+            // this._auth.userActive('1',x.username).subscribe((data)=>{
+              // console.log(data);
+            // })
+            localStorage.setItem('username',x.username);
+            this.router.navigate(['chatboard']);
+          }
+          else{
+            this.userMsg = "Invalid login or password. Please try again.";
+          }
+})
+
+
 
 }  
 
-loginUser()
-{
-  this._auth.loginUser(this.username)
-}
+//  loginUser()
+// {
+//   
+// }
 
 
 

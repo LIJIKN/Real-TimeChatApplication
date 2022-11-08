@@ -8,12 +8,18 @@ export class AuthService {
 
   baseUrl: string = 'http://localhost:5000/api/user';
 
-loginUser(user:any){
-  let url = `${this.baseUrl}/login`;
-    return this.http.post(url,{user});
-  // return this.http.post("http://localhost:5000/login",user)
-}
+
   constructor(private http:HttpClient) { }
+  
+
+  loginUser(user:any){
+    let url = `${this.baseUrl}/login`;
+      return this.http.post(url,{user});
+    // return this.http.post("http://localhost:5000/login",user)
+  }
+  loggedin(){
+    return !!localStorage.getItem('username');
+  }
 
 
   signup = (item:any,otp:any)=>{
@@ -35,6 +41,18 @@ loginUser(user:any){
     return this.http.put(url,{item});
   }
 
+  nickname( item:any,userId:any){
+    let url = `${this.baseUrl}/savename/`+ userId;
+    return this.http.put(url,{item});
+
+  }
+
+  checkname(name:any)
+  {
+    let url = `${this.baseUrl}/checkName/`+ name;
+    return this.http.get(url);
+
+  }
 
 }
 

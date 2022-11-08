@@ -21,10 +21,14 @@ const userSchema = new mongoose.Schema({
     type:Number,
     required: true,
   },
+  username:{
+    type:String,
+  },
   createdAt:{
     type: Date,
     default: Date.now(),
   }
+
 });
 
 // exports.User = mongoose.model("User", userSchema);

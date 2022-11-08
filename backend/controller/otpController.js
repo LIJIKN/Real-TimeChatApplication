@@ -48,7 +48,39 @@ const sendOTP = async(req,res) =>{
       } catch (err) {
         res.status(403);
       }
+    }
+const savename = async (req, res) => {
+  try {
+    username1 = req.body.item.nickname; 
+    await User.findByIdAndUpdate({ _id: req.params.userId },{$set:{"username":username1}}).then((data)=>{
+      res.send(data);
+      })
+    // const user = await User.findOne({ _id: req.params.userId });// data saving code
+    // res.status(200).json({ username: username1 });
+    console.log("username1=" + username1);
+    
+  } 
+  catch (err) {
+    console.log(err);
+    // res.status(403);
+  }
     };
+   const checkName = 
+   async (req, res) => {
+    try {
+     
+      await User.find({$and:[{username:req.params.name}]}).then((data)=>{
+      
+        res.send(data);
+        })
+      
+      
+    } 
+    catch (err) {
+      console.log(err);
+      // res.status(403);
+    }
+      };
   
-    module.exports = {sendOTP,getUserById};
+    module.exports = {sendOTP,getUserById ,savename,checkName};
   

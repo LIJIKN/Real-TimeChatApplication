@@ -21,4 +21,40 @@ const signUp = async (req, res) => {
     res.status(403).send("Cannot Create an User");
   }
 };
-module.exports = {signUp};
+
+const login = async (req,res) =>{
+  res.header("Access-Control-Allow-Origin","*");
+  res.header("Access-Control-Allow-Headers: Content-Type, application/json");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  try{
+    uname = req.body.user.username;
+    pwd = req.body.user.password;
+    User.findOne({"username":uname},function(err,user){
+      if(user){
+        if(pwd == user.pwd){
+          let payload = {subject:uname+pwd};
+          let token =jwt.sign(payload,'secretkey');
+          let userNames = {subject:uname};
+          let userToken = jwt.sign(userNames.subject,'secretkey');
+          const username = jwt.verify(userToken, "secretkey");
+          res.status(200).send({user:true,token,username});
+        }
+        else
+        {
+          res.json({unathorised:true}).status(401);
+        }
+      }
+      else
+      {
+        res.json({unathorised:true}).status(401);
+      }
+    })
+  }
+  catch{
+    console.log("Login error");
+  }
+}
+
+
+
+module.exports = {signUp,login};
