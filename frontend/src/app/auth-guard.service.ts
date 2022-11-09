@@ -13,7 +13,7 @@ export class AuthGuardService {
      return true;
     }
     else{
-      this.route.navigate(['login']);
+      this.route.navigate(['/']);
       return false;
     }
   }

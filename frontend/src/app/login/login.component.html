@@ -1,20 +1,20 @@
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
 <!------ Include the above in your HEAD tag ---------->
+<div class="body">
 <div class="center">
-<div class="container">
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="panel panel-login">
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-6">
-								<a href="#" class="active" id="login-form-link">Login</a>
+								<a routerLink="login" class="active" id="login-form-link">Login</a>
 							</div>
 							<div class="col-xs-6">
-								<a href="#" id="register-form-link">Register</a>
+								<a routerLink='' id="register-form-link">Register</a>
 							</div>
 						</div>
 						<hr>
@@ -61,33 +61,12 @@
 											</mat-error>
 										  </div>
 									</div>
-									<!-- <div class="form-group text-center">
-										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-										<label for="remember"> Remember Me</label>
-									</div> -->
-									<div class="form-group">
-										<div class="row">
-											<div class="d-flex justify-content-center">
-												<button 
-												class="btn"
-												type="submit" 
+									
+												<div class="buttons"> 
+												<button type="submit" class="btn btn-primary btns" [disabled]="!loginForm.valid" >Submit</button>
+												</div>
 												
-												[disabled]="!loginForm.valid" 
-												
-												 
-												 >Login</button>
-												 
-
-												<!-- <input -->
-								                 <!-- type="submit" -->
-											
-												 <!-- name="login-submit"  -->
-												 <!-- id="login-submit"  -->
-												 <!-- tabindex="4" class="form-control btn btn-login"  -->
-												 <!-- value="Log In" -->
-											</div>
-										</div>
-									</div>
+						 							 												
 									<div class="form-group">
 										<div class="row">
 											<div class="col-lg-12">

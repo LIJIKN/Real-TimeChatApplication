@@ -55,16 +55,6 @@ this._auth.loginUser(values).subscribe((data)=>{
           }
 })
 
-
-
 }  
-
-//  loginUser()
-// {
-//   
-// }
-
-
-
 
 }
