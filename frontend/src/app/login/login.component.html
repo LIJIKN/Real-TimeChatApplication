@@ -59,11 +59,14 @@
 											<mat-error *ngIf="password.errors?.['minlength']">
 											  Minimum length is your password is 6
 											</mat-error>
+											<mat-error>{{userMsg}}</mat-error>
 										  </div>
 									</div>
-									<mat-error>{{userMsg}}</mat-error>
+									
 												<div class="buttons"> 
+													
 												<button type="submit" class="btn btn-primary btns" [disabled]="!loginForm.valid" >Submit</button>
+												
 												</div>
 												
 						 							 												
