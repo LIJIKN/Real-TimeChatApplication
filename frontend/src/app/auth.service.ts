@@ -54,5 +54,29 @@ export class AuthService {
 
   }
 
+  // search = (item:any)=>{
+  //   let url = `${this.baseUrl}/search/`;
+  //   return this.http.post<any>(url,{item});
+  // }
+  // search = (values:any,username:any) => {
+  //   let url = `${this.baseUrl}/search/`+username;
+  //   return this.http.post(url,{values});
+  // }
+
+  search = (values:any,username:any) => {
+    let url = `${this.baseUrl}/searchUser/`+username;
+    return this.http.post(url,{values});
+  }
+  sendMessage = (values:any,username:any,currentuser:any) => {
+    let url = 'http://localhost:5000/sendMessage/'+username+'/'+currentuser;
+    return this.http.post(url,values);
+  }
+
+  getMsg = (currentuser:any,username:any) =>{
+    let url = `${this.baseUrl}/getMsg/`+currentuser+`/`+username;
+    return this.http.get(url);
+  }
+  // usermessage
+
 }
 

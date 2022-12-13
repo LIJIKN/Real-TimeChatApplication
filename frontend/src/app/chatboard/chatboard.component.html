@@ -1,23 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- <title>Bootstrap Example</title> -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #eaaded;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style> -->
+</head>
+<body>
+  <!-- <form  [formGroup]="chatForm"
+  (ngSubmit)="onsubmitsearch(chatForm.value)" > -->
 
-<div class="sidebarcontainer">
-    <h3>ChartBoard</h3>
-    <div class="links">
-      <li routerLink="/admin/home" routerLinkActive="active">
-        <a><i class="pi pi-home"></i>Dashboard</a>
-      </li>
-      <li routerLink="/admin/userprofiles" routerLinkActive="active">
-        <a><i class="pi pi-users"></i>Users</a>
-      </li>
-      <li routerLink="/admin/resume-templates" routerLinkActive="active">
-        <a><i class="pi pi-file"></i>users</a>
-      </li>
+  <form [formGroup]="allUsers" (ngSubmit)="search(allUsers.value)">
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <h1>Chat Board</h1><hr>
+      <ul>
+        <li><a href="#" >home</a></li><br>
+        <li><a href="#" >name</a></li><br>
+        <li><a href="#" >delate</a></li><br>
+        <li><a href="#" >mute</a></li><br> 
+        <li><a href="#" >block</a></li><br>
+
+      </ul>
+      <!-- <ul class="nav nav-pills nav-stacked"> -->
+        <!-- <li class="active"> -->
+        <!-- <a href="#section1">Home</a></li> -->
+        <!-- <li><a href="#section2">Friends</a></li> -->
+        <!-- <li><a href="#section3">Family</a></li> -->
+        <!-- <li><a href="#section3">Photos</a></li> -->
+      <!-- </ul><br> -->
+
+      <div class="search">
+        <input 
+        type="text" 
+        class="Search"
+         placeholder="Search..."
+         formControlName="SearchName"
+         >
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary btns" >Submit</button>
+        <a [routerLink]="routeLink + userId">
+          <div>
+              <table>
+                  <tr class="lineSpace">
+                  <td>{{name}}</td> 
+                  
+                  <!-- <td>{{userName}}</td> -->
+              </tr>
+              <tr><mat-error>{{msg}}</mat-error></tr>
+              </table>
+      </div>
+      </a>
+        <!-- <span class="input-group-btn"> -->
+          <!-- <button class="btn btn-default" type="button"> -->
+            <!-- <span class="glyphicon glyphicon-search"></span> -->
+          <!-- </button> -->
+        <!-- </span> -->
+        
+      </div>
+     
+      
     </div>
-    <div class="button" (click)="onLogout()">
-        <!-- <li routerLink="/admin/resume-templates" routerLinkActive="active"> -->
-        <!-- <button type="submit" class="btn btn-primary btns" >Submit</button> -->
-       <a class="logout">Logout <i class="pi pi-sign-out text-1xl"></i></a> 
-    <!-- </li> -->
+ 
+  <!-- </form> -->
+    <div class="col-sm-10 ">
+      
+         <div style="background-color: rgb(250, 245, 248);border-radius: 10px; width: 40%;">
+         <mat-card style="padding: 10px; margin: 20px;"> 
+          <p>
+         {{name}}
+         
+         
+        
+        </p>
+         </mat-card>  
+         
+        </div>
+        <div style="background-color: #96f5c9;border-radius: 10px; width: 40%;">
+          <mat-card style="padding: 10px; margin: 20px;"> 
+           <p>
+          Hai.....
+          i am 5n
+          
+         
+         </p>
+          </mat-card>  
+          
+         </div>
+
+         <div style="background-color: #e0f0ad;border-radius: 50px; width: 40%;">
+          <mat-card style="padding: 10px; margin: 20px;"> 
+           <p>
+          
+          
+          type.....
+         
+         </p>
+          </mat-card>  
+          
+         </div>
+
+        <div class="button" (click)="onSend()">
+          <a class="Send">Send </a>
     </div>
-  
+   
+    </div>
+   
+  </div>
+
 </div>
+
+  </form>
   
+<footer class="container-fluid">
+  <p>Footer Text</p>
+</footer>
+
+</body>
+
+</html>

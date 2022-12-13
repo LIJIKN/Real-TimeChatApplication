@@ -11,6 +11,7 @@ import { AuthService } from './auth.service';
 import { OTPComponent } from './otp/otp.component';
 import { ChatboardComponent } from './chatboard/chatboard.component';
 import { UsernameComponent } from './username/username.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -28,7 +29,9 @@ import { UsernameComponent } from './username/username.component';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
+
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

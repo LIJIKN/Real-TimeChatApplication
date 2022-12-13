@@ -78,7 +78,7 @@ export class SignupComponent implements OnInit {
 
   this.service.signup(values,otp).subscribe((data)=>{
   var x = JSON.parse(JSON.stringify(data));
- console.log(x);
+  console.log(x);
     const userId = x._id;
     console.log(userId);
     this.router.navigate(['/otp/'+userId]) 
